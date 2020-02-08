@@ -1,5 +1,23 @@
 import f from './functions'
 
+test('random array', () => {
+
+})
+
+describe('factorial', () => {
+  test('factorial', () => {
+    expect(f.factorial(3)).toBe(6);
+    expect(f.factorial(10)).toBe(3628800);
+  });
+  test('invalid', () => {
+    try {
+      f.factorial(-1);
+    } catch (error) {
+      expect(error).toBeTruthy();
+    }
+  })
+});
+
 describe('permutations', () => {
   test('permutations', () => {
     expect(f.permutations(5,3)).toBe(60);
