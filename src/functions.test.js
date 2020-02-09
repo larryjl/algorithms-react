@@ -1,9 +1,13 @@
 import f from './functions'
-
-test('random array', () => {
-
-})
-
+describe('random array', () => {
+  global.Math.random = jest.fn(() => 0.5);
+  test('1 number', () => {
+    expect(f.randomArr(1)).toEqual([0.5]);
+  });
+  test('2 number', () => {
+    expect(f.randomArr(2)).toEqual([0.5, 0.5]);
+  });
+});
 describe('factorial', () => {
   test('factorial', () => {
     expect(f.factorial(3)).toBe(6);
@@ -111,10 +115,12 @@ describe('recursive binary search', () => {
     expect(f.bsearchRecursive(array, target)).toBe(-1);
   });
 });
-test('swap', () => {
-  const arr=[3,2,1,0];
-  f.swap(arr,1,2);
-  expect(arr).toEqual([3,1,2,0]);
+describe('swap', () => {
+  test('swap', () => {
+    const arr=[3,2,1,0];
+    f.swap(arr,1,2);
+    expect(arr).toEqual([3,1,2,0]);
+  });
 });
 describe('bubble sort', () => {
   test('sort', () => {

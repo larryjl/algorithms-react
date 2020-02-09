@@ -1,7 +1,11 @@
 const f = {
 
-  randomArr: function() {
-
+  randomArr: function (n) {
+    const arr = [];
+    for (let i=0; i<n; i++) {
+      arr.push(Math.random());
+    };
+    return arr;
   },
   
   factorial: function (n) {
